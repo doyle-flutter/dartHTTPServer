@@ -1,4 +1,4 @@
-<img src="https://avatars1.githubusercontent.com/u/1609975?s=200&v=4" width="50%"/>
+<img src="https://avatars1.githubusercontent.com/u/1609975?s=200&v=4" width="30%"/>
 
 # Dart HTTP Server
 (2.12.0(dev) null-safety 이상의 버전을 사용해주세요)  
