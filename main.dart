@@ -5,9 +5,7 @@ import './JamesServer.dart';
 
 Future main() async {
   JamesServer james = new JamesServer();
-  await james.listen(
-    4000,
-  );
+  await james.listen(4000);
   await james.get('/', (HttpRequest req, HttpResponse res) => res.write('Hello, JamesServer'));
   await james.get('/fs2', (HttpRequest req, HttpResponse res) async {
     HttpClient client = new HttpClient();
@@ -38,8 +36,8 @@ Future main() async {
       </body>
     ''');
   });
-  dynamic datas = {
-    'data': [
+  Map<String, List<Map<String, String>>> datas = {
+    "data": [
       {"id": "1", "name": "James"},
       {"id": "2", "name": "Dev"},
       {"id": "3", "name": "JamesDEV"},
