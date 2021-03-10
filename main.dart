@@ -5,7 +5,9 @@ import './JamesServer.dart';
 
 Future main() async {
   JamesServer james = new JamesServer();
-  await james.listen(4000);
+  await james.listen(
+    4000,
+  );
   await james.get('/', (HttpRequest req, HttpResponse res) => res.write('Hello, JamesServer'));
   await james.get('/fs2', (HttpRequest req, HttpResponse res) async {
     HttpClient client = new HttpClient();
@@ -36,6 +38,17 @@ Future main() async {
       </body>
     ''');
   });
+  dynamic datas = {
+    'data': [
+      {"id": "1", "name": "James"},
+      {"id": "2", "name": "Dev"},
+      {"id": "3", "name": "JamesDEV"},
+      {"id": "4", "name": "Flutter 2"},
+      {"id": "5", "name": "WEB APP"},
+      {"id": "6", "name": "WEB And IOS"}
+    ]
+  };
+  await james.get('/contents', (req, res) => res.write(json.encode(datas)));
   await james.get('/lists', (req, res) async => await JamesServer.doRender(req: req, res: res, path: './views/lists.do'));
   await james.post('/', (HttpRequest req, HttpResponse res) => res.write('HI POST ? - JamseServer'));
   return;
