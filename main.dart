@@ -4,7 +4,7 @@ import 'dart:io';
 import './JamesServer.dart';
 
 Future main() async {
-  JamesServer james = new JamesServer();
+  JamesServer james = new JamesServer(cors: true);
   await james.listen(4000);
   await james.get('/', (HttpRequest req, HttpResponse res) => res.write('Hello, JamesServer'));
   await james.get('/fs2', (HttpRequest req, HttpResponse res) async {
